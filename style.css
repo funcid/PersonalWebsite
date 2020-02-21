@@ -1,0 +1,55 @@
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+    animation: gradient 4s ease infinite;
+    background-repeat: no-repeat;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+  
+.logo {
+    opacity: 100%;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.main {
+    margin-top: 14%;
+    margin-bottom: 0%;
+    color: azure;
+    font-size: 300pt;
+}
+
+.main h3 {
+    margin-top: 0%;
+    color: #efefef;
+    font-size: 23pt;
+}
+
+.main div {
+    margin-top: 0%;
+    color: #efefef;
+    font-size: 30pt;
+}
+
+.tags {
+    color: #efefef;
+}
+
+.tags img {
+    border-radius: 100%;
+}
