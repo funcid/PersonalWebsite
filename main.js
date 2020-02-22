@@ -21,22 +21,30 @@ window.onload = function() {
         radius = 100;
         dHeight = this.height/3;
     }
-    ['f|__', 'f___', 'fu__', 'fu|_', 'fu|_', 'fun_', 'fun|', 'fun_', 'func', 'func|', 'func'].forEach(function(str, i, arr) {
+    var fonts = ['Courier New', 'Impact', 'Palatino Linotype'];
+    ['f|__', 'f___', 'fu__', 'fu|_', 'fu|_', 'fun_', 'fun|', 'fun_', 'func_', 'func|', 'func'].forEach(function(str, i, arr) {
         this.setTimeout(() => {
             center.innerHTML = str;
+            center.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
+            if (i == arr.length - 1) {
+                center.style.fontFamily = fonts[1];
+                setInterval(() => {
+                    center.innerHTML = center.innerHTML == 'func' ? 'func|' : 'func'; 
+                }, 500);
+            }
         }, 200 * i);
     });
     setInterval(() => {
-        age.innerHTML = ((new Date().getTime()-1058832000000)/3600000/24/365).toFixed(10) + " лет";
+        age.innerHTML = ((new Date().getTime()-1058832000000)/3600000/24/365).toFixed(10) + " years";
         if (!this.mouseOver) {
             angle = angle > 100000000 ? 0 : angle + 1;
             logos.forEach(function(logo, i, arr) {
-                logo.style.left = width - center.clientWidth - logo.clientWidth/2 + Math.cos(angle/99 + (i + 1) * 2) * radius + 'px';
-                logo.style.top = height - center.clientHeight + dHeight - logo.height/2 + Math.sin(angle/99 + (i + 1) * 2) * radius + 'px';
+                logo.style.left = width - center.clientWidth - logo.clientWidth/2 + Math.cos(angle/166 + (i + 1) * 2) * radius + 'px';
+                logo.style.top = height - center.clientHeight + dHeight - logo.height/2 + Math.sin(angle/166 + (i + 1) * 2) * radius + 'px';
             });
         } 
     }, 5);
-};
+}
 
 function changeLogo(logo, opacity, border, boxshadow) {
     logo.style.opacity = opacity + '%';
@@ -46,9 +54,9 @@ function changeLogo(logo, opacity, border, boxshadow) {
 }
 
 function increaseLogo(logo) {
-    changeLogo(logo, 80, 3, 40, 'px #efefef');
-};
+    changeLogo(logo, 70, 10, 40, 'px #efefef');
+}
 
 function reduceLogo(logo) {
     changeLogo(logo, 100, 0, 0, 'px #white');
-};
+}
